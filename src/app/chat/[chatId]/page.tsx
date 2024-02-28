@@ -4,6 +4,7 @@ import { FC, useState } from 'react'
 import { getUsers, getChatRooms, ChatMessage } from '@/utils/dataUtils';
 import ChatInput from "@/components/ChatInput";
 import ChatMessages from '@/components/ChatMessages';
+import ChatLayout from '@/components/ChatLayout';
 
 interface PageProps {
     params: {
@@ -37,10 +38,12 @@ const ChatPage: FC<PageProps> = ({ params }) => {
     };
 
     return (
-        <div className="pb-20">
-            <ChatMessages messages={messages} users={users} />
-            <ChatInput onSendMessage={handleSendMessage} />
-        </div>
+        <ChatLayout>
+            <div className="pb-20">
+                <ChatMessages messages={messages} users={users} />
+                <ChatInput onSendMessage={handleSendMessage} />
+            </div>
+        </ChatLayout>
     );
 }
 

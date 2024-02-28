@@ -27,16 +27,7 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body>
-        <div className="antialiased bg-gray-50 dark:bg-gray-900">
-          <Navbar />
-          <Sidebar users={filteredUsers} />
-
-          <main className="p-4 md:ml-80 min-h-screen pt-20">
-            <div className="flex flex-col justify-between">
-              {children}
-            </div>
-          </main>
-        </div>
+        {children}
       </body>
     </html>
   );
