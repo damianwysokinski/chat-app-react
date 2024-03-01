@@ -1,10 +1,17 @@
 import usersData from '@/data/users.json';
-import chatRoomsData from '@/data/chatRooms.json';
+import chatroomsData from '@/data/chatRooms.json';
 
 export interface User {
   id: number;
   username: string;
+  name?: string;
+}
+
+export interface Chatroom {
+  id: number;
   name: string;
+  users: number[];
+  messages: ChatMessage[];
 }
 
 export interface ChatMessage {
@@ -14,15 +21,15 @@ export interface ChatMessage {
   timestamp: string;
 }
 
-export interface ChatRoom {
-  id: number;
-  messages: ChatMessage[];
+export function getUsers(): User[] {
+  return usersData as User[];
 }
 
-export function getUsers(): User[] {
-    return usersData as User[];
+export function getChatrooms(): Chatroom[] {
+  return chatroomsData as Chatroom[];
 }
-  
-export function getChatRooms(): ChatRoom[] {
-    return chatRoomsData as ChatRoom[];
+
+export function getChatroomById(id: number): Chatroom | undefined {
+  const chatrooms = getChatrooms();
+  return chatrooms.find(chatroom => chatroom.id === id);
 }
