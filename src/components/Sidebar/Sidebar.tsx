@@ -1,37 +1,38 @@
-"use client";
+'use client';
 
 import { FC, useState } from 'react';
-import { User } from '@/utils/dataUtils';
+import { Chatroom } from '@/utils/dataUtils';
 import SidebarSearchBar from './SidebarSearchBar';
 import SidebarUserList from './SidebarUserList';
 
 interface SidebarProps {
-    users: User[];
-    isDrawerOpen: boolean;
+  chatRooms: Chatroom[];
+  isDrawerOpen: boolean;
 }
 
-const Sidebar: FC<SidebarProps> = ({ users, isDrawerOpen }) => {
+const Sidebar: FC<SidebarProps> = ({ chatRooms, isDrawerOpen }) => {
   const [searchQuery, setSearchQuery] = useState<string>('');
 
-  const filteredUsers = users?.filter(user =>
-    user.name.toLowerCase().includes(searchQuery.toLowerCase())
+  const filteredUsers = chatRooms.filter((chatRoom) =>
+    chatRoom.name.toLowerCase().includes(searchQuery.toLowerCase()),
   );
 
   return (
-      <aside
-        className={`fixed top-0 left-0 z-40 w-80 h-screen pt-14 transition-transform ${isDrawerOpen ? '' : '-translate-x-full'} bg-white border-r border-gray-200 md:translate-x-0 dark:bg-gray-800 dark:border-gray-700`}
-        aria-label="Sidenav"
-        id="drawer-navigation"
-      >
-        <div className="overflow-y-auto py-5 px-2.5 h-full bg-white dark:bg-gray-800">
-          <div className="text-2xl font-bold mb-2">
-            Messages
-          </div>
-          <SidebarSearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
-          <SidebarUserList users={filteredUsers} />
-        </div>
-      </aside>
+    <aside
+      className={`fixed left-0 top-0 z-40 h-screen w-80 pt-14 transition-transform ${isDrawerOpen ? '' : '-translate-x-full'} border-r border-gray-200 bg-white md:translate-x-0 dark:border-gray-700 dark:bg-gray-800`}
+      aria-label="Sidenav"
+      id="drawer-navigation"
+    >
+      <div className="h-full overflow-y-auto bg-white px-2.5 py-5 dark:bg-gray-800">
+        <div className="mb-2 text-2xl font-bold">Messages</div>
+        <SidebarSearchBar
+          searchQuery={searchQuery}
+          setSearchQuery={setSearchQuery}
+        />
+        <SidebarUserList users={filteredUsers} />
+      </div>
+    </aside>
   );
-}
+};
 
 export default Sidebar;
