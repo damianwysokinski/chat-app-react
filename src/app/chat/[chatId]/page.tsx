@@ -1,50 +1,60 @@
-"use client";
+'use client';
 
-import { FC, useState } from 'react'
-import { getUsers, getChatRooms, ChatMessage } from '@/utils/dataUtils';
-import ChatInput from "@/components/ChatInput";
+import { FC, useState } from 'react';
+
+import { getChatroomById, ChatMessage, getUsers } from '@/utils/dataUtils';
+
+import ChatHeader from '@/components/ChatHeader';
+import ChatInput from '@/components/ChatInput';
 import ChatMessages from '@/components/ChatMessages';
 import ChatLayout from '@/components/ChatLayout';
 
 interface PageProps {
-    params: {
-        chatId: string
-    }
-}
-
-const getChatMessages = (chatId: string) => {
-    try {
-        const chatRooms = getChatRooms();
-        return chatRooms.find(room => room.id === parseInt(chatId));
-    } catch (error) {
-        console.error(error);
-    }
+  params: {
+    chatId: string;
+  };
 }
 
 const ChatPage: FC<PageProps> = ({ params }) => {
-    const { chatId } = params;
-    const users = getUsers();
-    const initialChatRoom = getChatMessages(chatId);
-    const [messages, setMessages] = useState<ChatMessage[]>(initialChatRoom?.messages || []);
+  const { chatId } = params;
+  const chatroom = getChatroomById(Number(chatId));
+  const users = getUsers();
 
-    const handleSendMessage = (messageContent: string) => {
-        const newMessage: ChatMessage = {
-          id: messages.length + 1,
-          senderId: 1,
-          message: messageContent,
-          timestamp: new Date().toISOString(),
-        };
-        setMessages((prevMessages) => [...prevMessages, newMessage]);
+  const [messages, setMessages] = useState<ChatMessage[]>(
+    chatroom?.messages || [],
+  );
+
+  const handleSendMessage = (messageContent: string) => {
+    const newMessage: ChatMessage = {
+      id: messages.length + 1,
+      senderId: 1,
+      message: messageContent,
+      timestamp: new Date().toISOString(),
     };
+    setMessages((prevMessages) => [...prevMessages, newMessage]);
+  };
 
+  if (!chatroom) {
     return (
-        <ChatLayout>
-            <div className="pb-20">
-                <ChatMessages messages={messages} users={users} />
-                <ChatInput onSendMessage={handleSendMessage} />
-            </div>
-        </ChatLayout>
+      <ChatLayout>
+        <div className="flex h-full items-center justify-center px-4 py-10 sm:px-6 lg:px-8">
+          <div className="flex flex-col items-center text-center">
+            Conversation not found
+          </div>
+        </div>
+      </ChatLayout>
     );
-}
+  }
+
+  return (
+    <ChatLayout>
+      <div className="pb-20">
+        <ChatHeader user={chatroom} />
+        <ChatMessages messages={messages} users={users} />
+        <ChatInput onSendMessage={handleSendMessage} />
+      </div>
+    </ChatLayout>
+  );
+};
 
 export default ChatPage;
