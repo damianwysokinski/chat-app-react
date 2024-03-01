@@ -58,11 +58,10 @@ const Navbar: FC<NavbarProps> = ({ toggleDrawer }) => {
             data-dropdown-toggle="dropdown"
           >
             <span className="sr-only">Open user menu</span>
-            <img
-              className="h-8 w-8 rounded-full"
-              src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/michael-gough.png"
-              alt="user photo"
-            />
+            <div className="relative">
+              <div className="h-8 w-8 rounded-full bg-gray-300"></div>
+              <span className="absolute left-6 top-0  h-3.5 w-3.5 rounded-full border-2 border-white bg-green-400 dark:border-gray-800"></span>
+            </div>
           </button>
         </div>
       </div>
