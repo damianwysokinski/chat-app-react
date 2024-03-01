@@ -1,4 +1,5 @@
 import { FC } from 'react'
+import Link from 'next/link'
 import { BellIcon, Bars3CenterLeftIcon, Squares2X2Icon } from '@heroicons/react/24/solid'
 
 interface NavbarProps {
@@ -20,9 +21,9 @@ const Navbar: FC<NavbarProps> = ({ toggleDrawer }) => {
               <Bars3CenterLeftIcon className="w-6 h-6" />
               <span className="sr-only">Toggle sidebar</span>
             </button>
-            <a href="/" className="flex items-center justify-between mr-4">
+            <Link href="/" className="flex items-center justify-between mr-4">
               <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">ChatApp</span>
-            </a>
+            </Link>
           </div>
           <div className="flex items-center lg:order-2">      
             <button
