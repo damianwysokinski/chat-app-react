@@ -1,4 +1,3 @@
-
 import { FC, useState } from 'react'
 
 interface ChatInputProps {
