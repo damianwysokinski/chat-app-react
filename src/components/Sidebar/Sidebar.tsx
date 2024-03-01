@@ -23,7 +23,10 @@ const Sidebar: FC<SidebarProps> = ({ users, isDrawerOpen }) => {
         aria-label="Sidenav"
         id="drawer-navigation"
       >
-        <div className="overflow-y-auto py-5 px-2 h-full bg-white dark:bg-gray-800">
+        <div className="overflow-y-auto py-5 px-2.5 h-full bg-white dark:bg-gray-800">
+          <div className="text-2xl font-bold mb-2">
+            Messages
+          </div>
           <SidebarSearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
           <SidebarUserList users={filteredUsers} />
         </div>
