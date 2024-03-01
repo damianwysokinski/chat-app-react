@@ -2,11 +2,6 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 
-import { getUsers } from '@/utils/dataUtils';
-
-import Navbar from "@/components/Navbar";
-import Sidebar from "@/components/Sidebar/Sidebar";
-
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -19,14 +14,9 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const loggedInUserId = 1;
-  const users = await getUsers();
-
-  const filteredUsers = users.filter(user => user.id !== loggedInUserId);
-
   return (
     <html lang="en">
-      <body>
+      <body className={inter.className}>
         {children}
       </body>
     </html>
