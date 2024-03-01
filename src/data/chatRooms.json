@@ -1,20 +1,40 @@
 [
-    {
+  {
+    "id": 1,
+    "name": "John Doe",
+    "users": [1, 2],
+    "messages": [
+      {
         "id": 1,
-        "name": "John Doe",
-        "users": [1, 2],
-        "messages": [
-            { "id": 1, "senderId": 2, "message": "Hello!", "timestamp": "2024-02-26T12:00:00Z" },
-            { "id": 2, "senderId": 1, "message": "Hi there!", "timestamp": "2024-02-26T12:00:00Z" }
-        ]
-    },
-    {
+        "senderId": 2,
+        "message": "Hello!",
+        "timestamp": "2024-02-26T12:00:00Z"
+      },
+      {
         "id": 2,
-        "name": "Kevin Goodman",
-        "users": [1, 3],
-        "messages": [
-            { "id": 1, "senderId": 3, "message": "Hey!", "timestamp": "2024-02-26T12:00:00Z" },
-            { "id": 2, "senderId": 1, "message": "Hey, how are you?", "timestamp": "2024-02-26T12:00:00Z" }
-        ]
-    }
+        "senderId": 1,
+        "message": "Hi there!",
+        "timestamp": "2024-02-26T12:00:00Z"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Kevin Goodman",
+    "users": [1, 3],
+    "messages": [
+      {
+        "id": 1,
+        "senderId": 3,
+        "message": "Hey!",
+        "timestamp": "2024-02-26T12:00:00Z"
+      },
+      {
+        "id": 2,
+        "senderId": 1,
+        "message": "Hey, how are you?",
+        "timestamp": "2024-02-26T12:00:00Z"
+      }
+    ]
+  }
 ]

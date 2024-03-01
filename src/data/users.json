@@ -1,18 +1,17 @@
 [
-    {
-      "id": 1,
-      "username": "spencergutierrez",
-      "name": "Spencer Gutierrez"
-    },
-    {
-      "id": 2,
-      "username": "johndoe",
-      "name": "John Doe"
-    },
-    {
-      "id": 3,
-      "username": "kevingoodman",
-      "name": "Kevin Goodman"
-    }
-  ]
-  
+  {
+    "id": 1,
+    "username": "spencergutierrez",
+    "name": "Spencer Gutierrez"
+  },
+  {
+    "id": 2,
+    "username": "johndoe",
+    "name": "John Doe"
+  },
+  {
+    "id": 3,
+    "username": "kevingoodman",
+    "name": "Kevin Goodman"
+  }
+]

@@ -31,5 +31,5 @@ export function getChatrooms(): Chatroom[] {
 
 export function getChatroomById(id: number): Chatroom | undefined {
   const chatrooms = getChatrooms();
-  return chatrooms.find(chatroom => chatroom.id === id);
+  return chatrooms.find((chatroom) => chatroom.id === id);
 }

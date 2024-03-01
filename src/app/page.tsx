@@ -6,11 +6,11 @@ import EmptyState from '@/components/EmptyState';
 const HomePage: FC = () => {
   return (
     <>
-        <ChatLayout>
-          <EmptyState />
-        </ChatLayout>
+      <ChatLayout>
+        <EmptyState />
+      </ChatLayout>
     </>
   );
-}
+};
 
 export default HomePage;
