@@ -3,11 +3,11 @@ import Link from 'next/link';
 import { Chatroom } from '@/utils/dataUtils';
 import { usePathname } from 'next/navigation';
 
-interface UserItemProps {
+interface SidebarUserItemProps {
   user: Chatroom;
 }
 
-const SidebarUserItem: FC<UserItemProps> = ({ user }) => {
+const SidebarUserItem: FC<SidebarUserItemProps> = ({ user }) => {
   const pathname = usePathname();
   const isLinkActive = pathname === `/chat/${user.id}`;
 

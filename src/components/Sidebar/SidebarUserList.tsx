@@ -2,11 +2,11 @@ import { FC } from 'react';
 import { Chatroom } from '@/utils/dataUtils';
 import SidebarUserItem from './SidebarUserItem';
 
-interface UserListProps {
+interface SidebarUserListProps {
   users: Chatroom[];
 }
 
-const SidebarUserList: FC<UserListProps> = ({ users }) => {
+const SidebarUserList: FC<SidebarUserListProps> = ({ users }) => {
   return (
     <ul>
       {users?.map((user, index) => <SidebarUserItem key={index} user={user} />)}
