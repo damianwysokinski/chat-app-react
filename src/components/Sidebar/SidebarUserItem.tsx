@@ -17,7 +17,7 @@ const SidebarUserItem: FC<SidebarUserItemProps> = ({ user }) => {
         href={`/chat/${user.id}`}
         className={`flex cursor-pointer items-center gap-4 rounded-lg px-2 py-2.5 hover:bg-gray-100 dark:hover:bg-gray-700 ${isLinkActive ? 'bg-gray-100 dark:bg-gray-700' : ''}`}
       >
-        <div className="h-10 w-10 rounded-full bg-gray-300 flex items-center justify-center">
+        <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-300">
           {user.name.charAt(0)}
         </div>
         <div className="font-medium dark:text-white">
