@@ -26,9 +26,11 @@ const SidebarUserItem: FC<SidebarUserItemProps> = ({ user }) => {
         <div className="flex min-h-10 min-w-10 items-center justify-center rounded-full bg-gray-300">
           {user.name.charAt(0)}
         </div>
-        <div className="flex flex-col font-medium truncate">
+        <div className="flex flex-col truncate font-medium">
           <div className="dark:text-white">{user.name}</div>
-          <div className="text-sm text-gray-500 dark:text-gray-400 truncate">{lastMessage}</div>
+          <div className="truncate text-sm text-gray-500 dark:text-gray-400">
+            {lastMessage}
+          </div>
         </div>
       </Link>
     </li>
