@@ -4,9 +4,9 @@ import { FC, useState } from 'react';
 
 import { getChatroomById, ChatMessage, getUsers } from '@/utils/dataUtils';
 
-import ChatHeader from '@/components/ChatHeader';
-import ChatInput from '@/components/ChatInput';
-import ChatMessages from '@/components/ChatMessages';
+import ChatHeader from '@/components/Chat/ChatHeader';
+import ChatInput from '@/components/Chat/ChatInput';
+import ChatMessages from '@/components/Chat/ChatMessages';
 import ChatLayout from '@/components/ChatLayout';
 
 interface PageProps {
